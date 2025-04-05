@@ -1,3 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@layer base {
+  .permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-style: extrabold;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@600;700&family=Poppins:wght@800&display=swap");
+
+.font-[BebasNeue] {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 2px;
+}
+.font-[Montserrat] {
+  font-family: "Montserrat", sans-serif;
+}
+.font-[Poppins] {
+  font-family: "Poppins", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@600;700&family=Poppins:wght@800&display=swap");
+
+@keyframes popup {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-popup {
+  animation: popup 0.3s ease-out forwards;
+}
+
+.font-[BebasNeue] {
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 2px;
+}
+.font-[Montserrat] {
+  font-family: "Montserrat", sans-serif;
+}
+.font-[Poppins] {
+  font-family: "Poppins", sans-serif;
+}
