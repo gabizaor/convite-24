@@ -4,7 +4,8 @@ import App from "./App";
 import "./index.css";
 
 if (window.location.pathname !== "/home") {
-  window.history.replaceState(null, "", "/home");
+  window.history.replaceState("/home", "", "/home");
+  window.location.reload();
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
