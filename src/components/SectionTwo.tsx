@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 export default function SectionTwo() {
   useEffect(() => {
-    const star = document.querySelector(".star-spin");
-    if (star) {
-      star.style.animationDuration = "40s";
+    const starElement = document.querySelector(".star-spin");
+    if (starElement) {
+      starElement.classList.add("long-spin");
     }
   }, []);
 
@@ -15,7 +15,7 @@ export default function SectionTwo() {
       <img
         src={star}
         alt="Star"
-        className="star-spin absolute inset-0 m-auto w-3/4 h-3/4 opacity-20 animate-spin"
+        className="star-spin long-spin absolute inset-0 m-auto w-3/4 h-3/4 opacity-20 animate-spin"
       />
 
       <div className="bg-rose-200 min-h-screen flex flex-col items-center justify-center">
