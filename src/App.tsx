@@ -16,7 +16,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/section-one" element={<SectionOne />} />
         <Route path="/section-two" element={<SectionTwo />} />
-        <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </Router>
   );
