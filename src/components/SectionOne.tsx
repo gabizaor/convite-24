@@ -75,8 +75,8 @@ export default function SectionOne() {
   };
 
   const cleanupConfetti = () => {
-    const container = containerRef.current as HTMLDivElement | null; // Assegura o tipo correto
-    if (!container) return; // Verifica se o container está definido
+    const container = containerRef.current as HTMLDivElement | null;
+    if (!container) return;
 
     const confettiElements = container.querySelectorAll(
       '[style*="position: absolute"]'
@@ -105,7 +105,7 @@ export default function SectionOne() {
           />
         </div>
       </div>
-      <div className="w-full px-4 pb-2 content-item">
+      <div className="w-full px-4 pb-2 mb-36 content-item">
         <button
           onClick={() => navigate("/section-two")}
           className="w-full py-3 text-white rounded-full bg-gradient-to-r from-[#ff0080] to-[#7928ca] text-lg font-bold shadow-lg"
