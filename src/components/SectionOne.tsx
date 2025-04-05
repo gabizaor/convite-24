@@ -29,15 +29,18 @@ export default function SectionOne() {
   };
 
   const createConfetti = () => {
+    const container = containerRef.current as HTMLDivElement | null;
+    if (!container) return;
+
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement("div");
       styleConfetti(confetti);
-      containerRef.current.appendChild(confetti);
+      container.appendChild(confetti);
       animateConfetti(confetti);
     }
   };
 
-  const styleConfetti = (confetti) => {
+  const styleConfetti = (confetti: HTMLDivElement) => {
     confetti.style.position = "absolute";
     confetti.style.width = `${Math.random() * 10 + 5}px`;
     confetti.style.height = `${Math.random() * 10 + 5}px`;
@@ -46,11 +49,11 @@ export default function SectionOne() {
     confetti.style.borderRadius = "50%";
     confetti.style.left = `${Math.random() * 100}vw`;
     confetti.style.top = `${Math.random() * -100}px`;
-    confetti.style.opacity = 1;
+    confetti.style.opacity = "1";
     confetti.style.zIndex = "0";
   };
 
-  const animateConfetti = (confetti) => {
+  const animateConfetti = (confetti: HTMLDivElement) => {
     gsap.to(confetti, {
       y: window.innerHeight + 100,
       rotation: Math.random() * 360,
@@ -72,7 +75,10 @@ export default function SectionOne() {
   };
 
   const cleanupConfetti = () => {
-    const confettiElements = document.querySelectorAll(
+    const container = containerRef.current as HTMLDivElement | null; // Assegura o tipo correto
+    if (!container) return; // Verifica se o container está definido
+
+    const confettiElements = container.querySelectorAll(
       '[style*="position: absolute"]'
     );
     confettiElements.forEach((el) => el.remove());
@@ -83,7 +89,6 @@ export default function SectionOne() {
       ref={containerRef}
       className="bg-[#162144] w-full min-h-screen flex flex-col justify-center items-center p-2 overflow-hidden relative"
     >
-      {/* Conteúdo mobile com confetes */}
       <div className="w-full flex flex-col items-center justify-center flex-1 px-2 content-item">
         <div className="text-5xl text-white font-serif font-bold uppercase tracking-wider mb-2">
           gabizão
@@ -116,7 +121,6 @@ export default function SectionOne() {
       ref={containerRef}
       className="bg-[#162144] w-full min-h-screen flex justify-center items-center p-4 overflow-hidden relative"
     >
-      {/* Efeito de confetes (serão adicionados via JS) */}
       <div className="p-4 md:p-6 space-y-4 md:space-y-6 h-full flex flex-col">
         <section className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12 flex-1 content-item">
           <div className="flex items-center gap-4 md:gap-8">
